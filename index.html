@@ -18,6 +18,17 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
 .formula-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.formula{min-width:0}.formula .equation{max-width:100%}
 .study-table{display:block;max-width:100%;overflow-x:auto}
 article li{max-width:100%;overflow-x:auto}
+.symbol-examples{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:18px 0 27px}
+.symbol-example{min-width:0;padding:16px;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:13px;background:#fff}
+.symbol-example:nth-child(2){border-top-color:var(--green)}.symbol-example:nth-child(3){border-top-color:var(--lav)}
+.symbol-example b{display:block;color:#60434b}.symbol-example .equation{font-size:1.04em}.symbol-example p{margin:7px 0 0;font-size:13px}
+.symbol-section{margin:25px 0}.symbol-section h2{margin-bottom:5px}.symbol-section>p{margin-top:0;color:var(--muted)}
+.symbol-key{width:100%;border-collapse:collapse;background:#fff;font-size:14px}.symbol-key th,.symbol-key td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.symbol-key th{background:#f8e9dc;color:#694b56;font-size:11px;letter-spacing:.06em;text-transform:uppercase}.symbol-key td:first-child{width:132px;white-space:nowrap;font-weight:800;color:#754459}.symbol-key td:last-child{width:150px;color:#6d6067}.symbol-key tr:last-child td{border-bottom:0}
+.symbol-note{margin:14px 0;padding:14px 17px;border-left:4px solid var(--gold);background:#fff4e7;border-radius:0 10px 10px 0}
+article [id]{scroll-margin-top:100px}
+a.ribbon{background:var(--plum);border-color:var(--plum);color:#fff}a.ribbon:hover{background:#624462;text-decoration:none}
+@media(max-width:780px){.symbol-examples{grid-template-columns:1fr}.symbol-key{font-size:12px}.symbol-key th,.symbol-key td{padding:7px}.symbol-key td:first-child{width:85px}.symbol-key td:last-child{width:100px}}
+@media(max-width:560px){.symbol-key,.symbol-key tbody,.symbol-key tr,.symbol-key td{display:block;width:100%!important}.symbol-key thead{display:none}.symbol-key tr{padding:8px 10px;border-bottom:1px solid var(--line)}.symbol-key td{padding:2px 0;border:0}.symbol-key td:first-child{font-size:16px}.symbol-key td:last-child{font-size:11px}}
 @media(max-width:560px){.formula-grid{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
@@ -28,11 +39,11 @@ article li{max-width:100%;overflow-x:auto}
   <div class="brand">Matter, heat<br>&amp; charge</div>
   <div class="side-note">A visual reviewer for Fluid Mechanics, Thermal Physics, and the laboratory activities.</div>
   <div class="side-actions"><button id="openAll">Open all</button><button id="closeAll">Close all</button></div>
-  <nav aria-label="Reviewer navigation"><a href="#fluid" data-nav="fluid">Theory · Fluid Mechanics</a><a href="#lab-m1" data-nav="lab-m1">Lab M1 · Buoyancy</a><a href="#thermal" data-nav="thermal">Theory · Thermal Physics</a><a href="#lab-m2" data-nav="lab-m2">Lab M2 · Expansion</a><a href="#electricity" data-nav="electricity">Lab M3 · Static Electricity</a><a href="#m4" data-nav="m4">Lab M4 · Simple Circuits</a><a href="#practice" data-nav="practice">Practice Problems</a><a href="#formula-sheet" data-nav="formula-sheet">Formula Sheet</a></nav>
+  <nav aria-label="Reviewer navigation"><a href="#fluid" data-nav="fluid">Theory · Fluid Mechanics</a><a href="#lab-m1" data-nav="lab-m1">Lab M1 · Buoyancy</a><a href="#thermal" data-nav="thermal">Theory · Thermal Physics</a><a href="#lab-m2" data-nav="lab-m2">Lab M2 · Expansion</a><a href="#electricity" data-nav="electricity">Lab M3 · Static Electricity</a><a href="#m4" data-nav="m4">Lab M4 · Simple Circuits</a><a href="#practice" data-nav="practice">Practice Problems</a><a href="#formula-sheet" data-nav="formula-sheet">Formula Sheet</a><a href="#symbols" data-nav="symbols">Symbol Guide · Decode Formulas</a></nav>
 </aside>
 <main>
-<div class="topbar"><input id="search" class="search" aria-label="Search Physics 2 reviewer" placeholder="Search concepts, formulas, or lab terms..."><div class="progress" id="progress">0 / 8 sections visited</div></div>
-<header class="hero"><div class="eyebrow">College Physics 2</div><h1>Follow the force.<br>Track the energy.</h1><p>One consolidated reviewer for Fluid Mechanics, Thermal Physics, and laboratory activities 1–4. Overlapping lecture, handout, notebook, and scanned-note explanations are combined here rather than repeated.</p><div class="ribbons"><span class="ribbon">Rendered equations</span><span class="ribbon">Worked examples</span><span class="ribbon">Lab procedures</span><span class="ribbon">Visual maps</span><span class="ribbon">Self-checks</span></div></header>
+<div class="topbar"><input id="search" class="search" aria-label="Search Physics 2 reviewer" placeholder="Search concepts, formulas, or lab terms..."><div class="progress" id="progress">0 / 9 sections visited</div></div>
+<header class="hero"><div class="eyebrow">College Physics 2</div><h1>Follow the force.<br>Track the energy.</h1><p>One consolidated reviewer for Fluid Mechanics, Thermal Physics, and laboratory activities 1–4. Overlapping lecture, handout, notebook, and scanned-note explanations are combined here rather than repeated.</p><div class="ribbons"><span class="ribbon">Rendered equations</span><span class="ribbon">Worked examples</span><span class="ribbon">Lab procedures</span><span class="ribbon">Visual maps</span><span class="ribbon">Self-checks</span><a class="ribbon" href="#symbols">Decode symbols →</a></div></header>
 <div class="content">
 <div class="index"><a href="#fluid"><small>Module 1</small><strong>Fluid Mechanics</strong></a><a href="#thermal"><small>Module 2</small><strong>Thermal Physics</strong></a><a href="#electricity"><small>Lab 3</small><strong>Static Electricity</strong></a><a href="#m4"><small>Lab 4</small><strong>Simple Circuits</strong></a><a href="#practice"><small>Assessment</small><strong>Practice Problems</strong></a></div>
 <div class="audit"><b>Source audit</b><span class="pill">15 supplied PDFs</span><span>Lecture/reviewer PDFs, four lab sheets, the added lab notebook, scanned M1–M3 notes, and practice problems were compared. Contradictory handwritten claims are corrected in context.</span></div>
@@ -122,6 +133,74 @@ article li{max-width:100%;overflow-x:auto}
 <h2>Lab formulas at a glance</h2><div class="formula-grid"><div class="formula"><b>Lab 1 · two buoyancy methods</b><div class="equation">\[B_1=\rho_fV_dg,\quad B_2=W_{\rm air}-W_{\rm fluid}\]</div><small>Compare two measurements with symmetric percent difference.</small></div><div class="formula"><b>Lab 2 · measured expansion</b><div class="equation">\[\alpha_{\rm exp}=\frac{L_f-L_0}{L_0(T_f-T_i)}\]</div><small>Use percent error against the reference coefficient.</small></div><div class="formula"><b>Lab 3 · charge</b><div class="equation">\[Q=ne,\quad \sum Q_{\rm before}=\sum Q_{\rm after}\]</div><small>Electron gain means negative net charge.</small></div><div class="formula"><b>Lab 4 · circuit</b><div class="equation">\[I=\frac{\Delta Q}{\Delta t},\quad V=IR,\quad P=VI\]</div><small>The lamp test requires a complete path.</small></div></div>
 <h2>Six-question retrieval check</h2><p>Answer aloud or on paper before opening each explanation.</p><details class="practice"><summary>1 · Two holes at different depths in the same tank: which has greater pressure?</summary><div class="answer"><p>The deeper hole. With the same surface pressure and fluid, \(p=p_0+\rho gd\) rises with vertical depth.</p></div></details><details class="practice"><summary>2 · Why does the wider hydraulic piston move less?</summary><div class="answer"><p>The displaced fluid volume must match: \(A_1d_1=A_2d_2\). A larger area requires a smaller distance for the same volume.</p></div></details><details class="practice"><summary>3 · A pure substance is melting at fixed pressure while heated. Does its temperature rise?</summary><div class="answer"><p>Not until melting finishes. During the equilibrium phase change, supplied energy changes phase; model it with \(Q=mL_f\), not \(mc\Delta T\).</p></div></details><details class="practice"><summary>4 · What is the difference between heat capacity and specific heat?</summary><div class="answer"><p>Heat capacity \(C\), in J/K, belongs to the whole object. Mass-specific heat \(c\), in J/(kg·K), belongs to the material, with \(C=mc\) when the approximation applies.</p></div></details><details class="practice"><summary>5 · Can a neutral object be attracted to a charged one?</summary><div class="answer"><p>Yes. A nearby charge can polarize it so opposite charge is closer; attraction does not prove the neutral object gained net charge.</p></div></details><details class="practice"><summary>6 · A test bulb stays off. Have you proved the sample is an insulator?</summary><div class="answer"><p>No. The sample might resist current, but the source, switch, bulb, or contacts might also have broken the path. Check the rest of the circuit first.</p></div></details>
 <section class="source"><details><summary>Source coverage and limitations</summary><div class="source-inner"><p>This consolidates the 15 supplied PDFs: Fluid Mechanics and Thermal Physics lecture/reviewer materials; buoyancy, expansion, Van de Graaff, and circuit handouts; the added Physics 2 lab notebook and scanned M1–M3 notes; photographed discussion slides; and the practice set. Repeated definitions and equations appear once in the main explanation, with the formula sheet reserved for quick recall.</p><p>The practice sheet was read from its page image for the numerical answers. Its hydraulic-lift part B omits oil density, so that result is marked assumption-dependent. The handwritten notes include a reversed pressure statement and a mistaken label for induction; the main text uses the physically correct versions. Recorded lab measurements are examples, not standard constants.</p></div></details></section>
+<h1 id="symbols">Symbol guide · read every formula</h1>
+<p>A letter is a shortcut for a measured quantity, not a word to memorize alone. Read the <b>whole formula</b>, then check the subscript and the units. The same letter can mean different things in different chapters.</p>
+<div class="symbol-examples" aria-label="Three worked formula decoders">
+  <div class="symbol-example"><b>Heat while temperature changes</b><div class="equation">\[Q=mc\Delta T\]</div><p>Read: heat transferred = mass × specific heat × temperature change. Here \(\Delta T=T_f-T_i\). A 2 kg object with \(c=100\,\mathrm{J/(kg\cdot K)}\) warming by 3 K needs \(Q=600\,\mathrm J\).</p></div>
+  <div class="symbol-example"><b>Buoyant force</b><div class="equation">\[F_B=\rho_fV_dg\]</div><p>Read: upward buoyant force = <em>fluid</em> density × displaced volume × gravitational acceleration. The small \(f\) means fluid; \(d\) means displaced.</p></div>
+  <div class="symbol-example"><b>Length change</b><div class="equation">\[\Delta L=\alpha L_0\Delta T\]</div><p>Read: increase in length = expansion coefficient × <em>original</em> length × temperature change. The triangle \(\Delta\) is the Greek letter <em>delta</em>, meaning “change in.”</p></div>
+</div>
+<div class="symbol-note"><b>Important:</b> \(\Delta T\) means <em>final temperature minus initial temperature</em>, not “triangle times T.” Likewise \(mc\Delta T\) is \(m\times c\times(T_f-T_i)\). A subscript tells you <em>which</em> reading: for example, \(V_i\) is initial volume and \(V_f\) is final volume.</div>
+
+<section class="symbol-section"><h2>Marks and subscripts used throughout</h2><p>These change how a symbol is read.</p><table class="symbol-key"><thead><tr><th>Mark</th><th>Meaning</th><th>Example / unit</th></tr></thead><tbody>
+<tr><td>\(\Delta\)</td><td>“Change in”: final value minus initial value. It can be negative.</td><td>\(\Delta T=T_f-T_i\)</td></tr>
+<tr><td>\(\Sigma\)</td><td>Sum: add all the indicated values.</td><td>\(\sum Q_i=0\)</td></tr>
+<tr><td>\(L_0,\ V_i,\ V_f\)</td><td>Subscripts: original or reference state; initial reading; final reading. \(L_0\) is the original length, while \(L_f\) can mean final length <em>or</em> latent heat of fusion—read the context.</td><td>\(T_i,\ T_f,\ L_0\)</td></tr>
+<tr><td>\(\alpha_{\rm exp},\ \rho_{\rm ref}\)</td><td>Experimental, accepted/reference, or theoretical value (\({\rm theo}\)).</td><td>\(\alpha_{\rm exp}\)</td></tr>
+<tr><td>\(F_1,\ F_2\)</td><td>First/second object, piston, measurement, or method; the number is a label, not an exponent.</td><td>\(F_1/A_1=F_2/A_2\)</td></tr>
+<tr><td>\(\rho_{\rm fluid},\ W_{\rm air}\)</td><td>Which material or condition the value belongs to; “sub” means submerged and “object” identifies the object.</td><td>\(W_{\rm sub}\)</td></tr>
+<tr><td>\(T_h,\ T_c\)</td><td>Hot-side and cold-side temperatures in conduction.</td><td>\(T_h-T_c\)</td></tr>
+<tr><td>\(|x|\)</td><td>Absolute value: use the positive size of a difference.</td><td>\(|B_1-B_2|\)</td></tr>
+<tr><td>\(\approx\)</td><td>Approximately equal; rounding or an approximation was used.</td><td>\(\beta\approx3\alpha\)</td></tr>
+<tr><td>\(\dot Q,\ dQ/dt\)</td><td>Rate of heat transfer: energy transferred per unit time. A dot or derivative means “per second.”</td><td>W = J/s</td></tr>
+<tr><td>\(\pi\)</td><td>Pi, about 3.1416; used for circular area.</td><td>\(A=\pi r^2\)</td></tr>
+</tbody></table></section>
+
+<section class="symbol-section"><h2>Fluid mechanics and buoyancy</h2><table class="symbol-key"><thead><tr><th>Symbol</th><th>What it means here</th><th>Usual SI unit</th></tr></thead><tbody>
+<tr><td>\(\rho\) (rho)</td><td>Mass density. The subscript names the material: \(\rho_f\) or \(\rho_{\rm fluid}\) is fluid density; \(\rho_w\) is water density; \(\rho_u\) is unknown-liquid density.</td><td>kg/m³</td></tr>
+<tr><td>\(m\)</td><td>Mass of the object, fluid, or container named in the question.</td><td>kg</td></tr>
+<tr><td>\(V\)</td><td>Volume in fluid formulas. \(V_d\) is displaced volume, \(V_{\rm sub}\) submerged volume, and \(V_i,V_f\) initial/final cylinder readings.</td><td>m³</td></tr>
+<tr><td>\(SG\)</td><td>Specific gravity = object density ÷ water density.</td><td>No unit</td></tr>
+<tr><td>\(p\)</td><td>Pressure. \(p_0\) or \(p_{\rm atm}\) is pressure at the surface/atmosphere; \(p_{\rm gauge}\) is pressure above atmospheric.</td><td>Pa = N/m²</td></tr>
+<tr><td>\(F,\ F_\perp\)</td><td>Force; \(F_\perp\) is the force perpendicular to a surface. \(F_1,F_2\) label the two hydraulic pistons.</td><td>N</td></tr>
+<tr><td>\(A\)</td><td>Area receiving the force; \(A_1,A_2\) are piston areas. \(r\) is radius and \(D_s\) is small-piston diameter in the practice problem.</td><td>m²</td></tr>
+<tr><td>\(g\)</td><td>Gravitational acceleration at the location used in the problem.</td><td>m/s²</td></tr>
+<tr><td>\(d\)</td><td>Vertical depth below a fluid surface in \(p=p_0+\rho gd\); piston travel distance in \(A_1d_1=A_2d_2\).</td><td>m</td></tr>
+<tr><td>\(F_B,\ B\)</td><td>Buoyant force, the upward force of the fluid. \(B_1,B_2\) are the two lab methods; \(B_w,B_u\) mean buoyant force in water/unknown liquid.</td><td>N</td></tr>
+<tr><td>\(W,\ W_{\rm apparent}\)</td><td>Weight (force) in buoyancy; \(W_{\rm apparent}\) is the spring-scale reading while submerged. \(W_1,W_2\) label air/fluid readings.</td><td>N</td></tr>
+<tr><td>\(T\)</td><td>Tension force in a rope or spring scale—not temperature in this context.</td><td>N</td></tr>
+<tr><td>\(D_s,\ A_s,\ m_2\)</td><td>In the hydraulic practice problem: small-piston diameter, small-piston area, and added mass of the second student. The subscript \(s\) means small.</td><td>m; m²; kg</td></tr>
+</tbody></table></section>
+
+<section class="symbol-section"><h2>Thermal physics</h2><table class="symbol-key"><thead><tr><th>Symbol</th><th>What it means here</th><th>Usual SI unit</th></tr></thead><tbody>
+<tr><td>\(T,\ T_i,\ T_f\)</td><td>Temperature; initial and final temperatures. \(T_C,T_F,T_K\) are values on Celsius, Fahrenheit, and Kelvin scales.</td><td>K or °C</td></tr>
+<tr><td>\(\Delta T\)</td><td>Temperature change = \(T_f-T_i\). A change of 1 K has the same size as a change of 1°C.</td><td>K or °C difference</td></tr>
+<tr><td>\(L_0,L_f,\Delta L\)</td><td>Original length, final length, and change in length \(L_f-L_0\) in expansion problems.</td><td>m</td></tr>
+<tr><td>\(\alpha\) (alpha)</td><td>Coefficient of <em>linear</em> thermal expansion. \(\alpha_{\rm exp}\) is measured; \(\alpha_{\rm theo}\) is a reference value.</td><td>1/K</td></tr>
+<tr><td>\(V_0,\Delta V\)</td><td>Original volume and change in volume in expansion problems.</td><td>m³</td></tr>
+<tr><td>\(\beta\) (beta)</td><td>Coefficient of <em>volume</em> expansion; for a small isotropic solid expansion, \(\beta\approx3\alpha\).</td><td>1/K</td></tr>
+<tr><td>\(Q\)</td><td>Heat transferred into or out of a system—not electric charge here.</td><td>J</td></tr>
+<tr><td>\(m,\ c\)</td><td>Mass and mass-specific heat capacity in \(Q=mc\Delta T\). The subscript on \(c\) names the material.</td><td>kg; J/(kg·K)</td></tr>
+<tr><td>\(C\)</td><td>Heat capacity of a <em>whole object</em>: \(C=mc\), so \(Q=C\Delta T\). Do not confuse it with the unit C for coulombs.</td><td>J/K</td></tr>
+<tr><td>\(L,\ L_f,\ L_v\)</td><td>Specific latent heat in \(Q=mL\); \(L_f\) is fusion/melting, \(L_v\) vaporization/boiling. Here \(L\) is <em>not</em> a length.</td><td>J/kg</td></tr>
+<tr><td>\(E_{\rm thermal}\)</td><td>Thermal energy of the system; \(\Delta E_{\rm thermal}\) is its change.</td><td>J</td></tr>
+<tr><td>\(W\)</td><td>Work transferred in the first-law convention of this module; positive when done <em>on</em> the system.</td><td>J</td></tr>
+<tr><td>\(k,\ A,\ L\)</td><td>Thermal conductivity, area perpendicular to heat flow, and slab thickness in \(dQ/dt=kA\Delta T/L\). Here \(L\) is thickness, not latent heat.</td><td>W/(m·K); m²; m</td></tr>
+<tr><td>\(T_{\rm Cu,i},\ c_{\rm Al}\)</td><td>Initial copper temperature and aluminum’s specific heat in the mixed-material calorimetry problem. Material labels such as Cu, Al, and eth identify copper, aluminum, and ethanol.</td><td>K or °C; J/(kg·K)</td></tr>
+</tbody></table></section>
+
+<section class="symbol-section"><h2>Electric charge and circuits</h2><table class="symbol-key"><thead><tr><th>Symbol</th><th>What it means here</th><th>Usual SI unit</th></tr></thead><tbody>
+<tr><td>\(Q,\ q\)</td><td>Electric charge. \(Q\) may be total charge transferred; \(q\) is the charge used in the voltage definition. In thermal physics, \(Q\) instead means heat.</td><td>C (coulomb)</td></tr>
+<tr><td>\(n,\ e\)</td><td>Number of elementary charges and magnitude of one elementary charge (\(e=1.602\times10^{-19}\,\mathrm C\)). Add the sign to \(Q=ne\) according to electron gain/loss.</td><td>No unit; C</td></tr>
+<tr><td>\(I\)</td><td>Electric current = charge passing a point per unit time.</td><td>A = C/s</td></tr>
+<tr><td>\(t,\Delta t\)</td><td>Time and time interval.</td><td>s</td></tr>
+<tr><td>\(V\)</td><td>Electric potential difference (voltage), energy per charge. In fluid/thermal formulas, \(V\) instead means volume.</td><td>V = J/C</td></tr>
+<tr><td>\(\Delta U_e\)</td><td>Change in electric potential energy of charge \(q\).</td><td>J</td></tr>
+<tr><td>\(R\)</td><td>Electrical resistance = voltage ÷ current.</td><td>Ω = V/A</td></tr>
+<tr><td>\(P\)</td><td>Electrical power = energy transferred per second. Lowercase \(p\) in fluid mechanics is pressure.</td><td>W (watt)</td></tr>
+</tbody></table></section>
+<div class="symbol-note"><b>Look-alikes to watch:</b> \(c\) = specific heat, but \(C\) = whole-object heat capacity or the unit coulomb; \(Q\) = heat <em>or</em> charge; \(V\) = volume <em>or</em> voltage; \(W\) = weight, work, <em>or</em> the unit watt. A formula’s chapter and units tell you which one is intended.</div>
+<p><b>Unit symbols, not extra variables:</b> kg = kilogram (mass), m = meter (length), s = second (time), mL = milliliter (volume), N = newton (force), Pa = pascal (pressure), J = joule (energy), K = kelvin (temperature), °C = degrees Celsius, A = ampere (current), C = coulomb (charge), V = volt (potential difference), W = watt (power), and Ω = ohm (resistance). For example, \(Q=mc\Delta T\) yields joules because kg × J/(kg·K) × K = J.</p>
 </article>
 </div></main></div>
 <script>
@@ -129,7 +208,7 @@ const tabs=document.querySelectorAll('.tab'); tabs.forEach(t=>t.addEventListener
 document.getElementById('openAll').onclick=()=>document.querySelectorAll('details').forEach(d=>d.open=true); document.getElementById('closeAll').onclick=()=>document.querySelectorAll('details').forEach(d=>d.open=false);
 const search=document.getElementById('search'), empty=document.createElement('div'); empty.className='empty'; empty.textContent='No matching concept found.'; document.querySelector('article').prepend(empty);
 search.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();let hits=0;document.querySelectorAll('article h1,article h2,article h3,article p,article li,article .formula,article .practice,article .card,article tr,article .symbol-tile,article figure').forEach(n=>{const ok=!q||n.textContent.toLowerCase().includes(q);n.style.display=ok?'':'none';if(ok)hits++;});empty.style.display=q&&hits===0?'block':'none';});
-const links=[...document.querySelectorAll('[data-nav]')], sections=['fluid','lab-m1','thermal','lab-m2','electricity','m4','practice','formula-sheet'].map(id=>document.getElementById(id)), progress=document.getElementById('progress'), seen=new Set(); const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){seen.add(e.target.id);progress.textContent=seen.size+' / 8 sections visited';links.forEach(a=>a.classList.toggle('active',a.dataset.nav===e.target.id));}}),{rootMargin:'-20% 0px -70% 0px'}); sections.forEach(s=>observer.observe(s));
+const links=[...document.querySelectorAll('[data-nav]')], sections=['fluid','lab-m1','thermal','lab-m2','electricity','m4','practice','formula-sheet','symbols'].map(id=>document.getElementById(id)), progress=document.getElementById('progress'), seen=new Set(); const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){seen.add(e.target.id);progress.textContent=seen.size+' / 9 sections visited';links.forEach(a=>a.classList.toggle('active',a.dataset.nav===e.target.id));}}),{rootMargin:'-20% 0px -70% 0px'}); sections.forEach(s=>observer.observe(s));
 </script>
 </body>
 </html>
